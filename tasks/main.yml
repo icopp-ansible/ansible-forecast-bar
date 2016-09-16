@@ -1,0 +1,8 @@
+---
+- name: Install Forecast Bar via Mac App Store
+  command: mas install "{{ item.id }}"
+  args:
+    creates: /Applications/{{ item.name }}.app
+  with_items:
+    - { id: 982710545, name: "Forecast Bar" }
+  when: ansible_os_family == "Darwin"
